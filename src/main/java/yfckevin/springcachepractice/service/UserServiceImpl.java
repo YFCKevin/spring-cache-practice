@@ -7,6 +7,7 @@ import yfckevin.springcachepractice.entity.User;
 import yfckevin.springcachepractice.repository.UserRepository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Slf4j
 @Service
@@ -16,7 +17,7 @@ public class UserServiceImpl implements UserService{
     private UserRepository userRepo;
 
     @Override
-    public User getUserById(Integer id) {
+    public User getUserById(UUID id) {
         log.info("id: {}", id);
 
         return userRepo

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import yfckevin.springcachepractice.entity.User;
 import yfckevin.springcachepractice.service.UserService;
 
+import java.util.UUID;
+
 @Tag(name = "Member")
 @RequestMapping("/api/v1.0")
 @RestController
@@ -32,7 +34,7 @@ public class UserController {
             )
     })
     @GetMapping("users/{id}")
-    public User getUserById(@PathVariable("id") Integer id){
+    public User getUserById(@PathVariable("id") UUID id){
         return userService.getUserById(id);
     }
 
