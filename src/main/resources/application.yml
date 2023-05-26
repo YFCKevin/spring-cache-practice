@@ -1,0 +1,41 @@
+server: 8080
+
+spring:
+  data:
+    jpa:
+      repositories:
+        enabled: true
+    redis:
+      repositories:
+        enabled: true
+
+    # dataSource settings
+  datasource:
+    url: jdbc:mysql://localhost:3306/cache_practice?serverTimezone=Asia/Taipei
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # sessionFactory settings
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+redis:
+  port: 6379
+cache:
+  type: redis
+  redis:
+    time-to-live: -1
+    use-key-prefix: true
+    key-prefix: spring_cache_
+    cache-null-values: false
+
+
