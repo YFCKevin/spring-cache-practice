@@ -10,15 +10,12 @@ import java.util.UUID;
 
 public interface UserService {
 
-    @Cacheable(value = "user", key = "#id")
-    User getUserById(UUID id);
+    User getUserById(Long id);
 
-    @CachePut(value = "user", key = "#result.id")
     User create(User user);
 
-    @CachePut(value = "user", key = "#a0.id")
     User update(User user);
 
-    @CacheEvict(value = "user", key = "#id")
-    void delete(Integer id);
+
+    void delete(Long id);
 }

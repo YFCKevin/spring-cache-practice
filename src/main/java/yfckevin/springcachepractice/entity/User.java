@@ -1,6 +1,7 @@
 package yfckevin.springcachepractice.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,11 +22,16 @@ public class User implements Serializable {
 
     @Schema(description = "會員編號")
     @Id
-    private UUID id;
+    private Long id;
 
     @Schema(description = "信箱")
     private String email;
 
+    /*
+    * 不可序列化(轉換成JSON)，可以反序列化(轉換成user物件)
+    * 僅能讓此物件值被設定進去，無法讀取。
+    * */
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Schema(description = "密碼")
     private String password;
 

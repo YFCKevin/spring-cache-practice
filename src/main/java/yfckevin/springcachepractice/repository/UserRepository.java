@@ -5,9 +5,8 @@ import org.springframework.stereotype.Repository;
 import yfckevin.springcachepractice.entity.User;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
-    Optional<User> findById(UUID id);
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findById(Long id);
 }
